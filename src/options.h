@@ -30,9 +30,9 @@ public:
     void Set_Socket();
     void Set_Shuffle(bool on);
     void Set_Repeat(bool on);
-    void Set_Score_Volume(double volume, bool feedback);
-    void Set_Sound_Volume(double volume, bool feedback);
-    void Set_Voice_Volume(double volume, bool feedback);
+    void Set_Score_Volume(float volume, bool feedback);
+    void Set_Sound_Volume(float volume, bool feedback);
+    void Set_Voice_Volume(float volume, bool feedback);
 
     int Normalize_Delay(int delay) const;
     int Normalize_Volume(int volume) const;
