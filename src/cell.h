@@ -248,7 +248,7 @@ public:
             return false;
         }
 
-        if (Overlay >= OVERLAY_LOWBRIDGE_SE_NW_STRAIGHT_START && Overlay <= OVERLAY_LOWBRIDGE_SE_NW_STRAIGHT_END) {
+        if (Overlay >= OVERLAY_LOWBRIDGE_SE_NW_STRAIGHT_BEGIN && Overlay <= OVERLAY_LOWBRIDGE_SE_NW_STRAIGHT_END) {
             return true;
         }
 
@@ -269,7 +269,7 @@ public:
             return false;
         }
 
-        if (Overlay >= OVERLAY_LOWBRIDGE_SW_NE_STRAIGHT_START && Overlay <= OVERLAY_LOWBRIDGE_SW_NE_STRAIGHT_END) {
+        if (Overlay >= OVERLAY_LOWBRIDGE_SW_NE_STRAIGHT_BEGIN && Overlay <= OVERLAY_LOWBRIDGE_SW_NE_STRAIGHT_END) {
             return true;
         }
 
