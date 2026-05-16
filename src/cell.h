@@ -242,6 +242,49 @@ public:
     bool Is_Overlay_Bridge() const { return Overlay == OVERLAY_BRIDGE1 || Overlay == OVERLAY_BRIDGE2; }
     bool Is_Overlay_Rail_Bridge() const { return Overlay == OVERLAY_RAIL_BRIDGE1 || Overlay == OVERLAY_RAIL_BRIDGE2; }
 
+    bool Is_Low_Bridge_SE_NW()
+    {
+        if (!Is_Overlay_Low_Bridge()) {
+            return false;
+        }
+
+        if (Overlay >= OVERLAY_LOWBRIDGE_SE_NW_STRAIGHT_START && Overlay <= OVERLAY_LOWBRIDGE_SE_NW_STRAIGHT_END) {
+            return true;
+        }
+
+        if (Overlay >= OVERLAY_LOWBRIDGE_SE_NW_RAMP_BEGIN && Overlay <= OVERLAY_LOWBRIDGE_SE_NW_RAMP_END) {
+            return true;
+        }
+
+        if (Overlay == OVERLAY_LOWBRIDGE_SE_NW_DESTROYED) {
+            return true;
+        }
+
+        return false;
+    }
+
+    bool Is_Low_Bridge_SW_NE()
+    {
+        if (!Is_Overlay_Low_Bridge()) {
+            return false;
+        }
+
+        if (Overlay >= OVERLAY_LOWBRIDGE_SW_NE_STRAIGHT_START && Overlay <= OVERLAY_LOWBRIDGE_SW_NE_STRAIGHT_END) {
+            return true;
+        }
+
+        if (Overlay >= OVERLAY_LOWBRIDGE_SW_NE_RAMP_BEGIN && Overlay <= OVERLAY_LOWBRIDGE_SW_NE_RAMP_END) {
+            return true;
+        }
+
+        if (Overlay == OVERLAY_LOWBRIDGE_SW_NE_DESTROYED) {
+            return true;
+        }
+
+        return false;
+    }
+
+
     CellClass* Get_Bridge_Owner() const;
 
     Cell Fetch_CellID() const { return CellID; }
