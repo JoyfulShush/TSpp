@@ -320,6 +320,10 @@ inline T Random_Pick(T a, T b)
     return Scen->RandomNumber(a, b);
 };
 
+inline Cell Get_Nearby_Cell_At_Depth(const Cell& cell, FacingType dir, int depth)
+{
+    return (Cell)(cell + AdjacentCell[(int)dir & (FACING_COUNT - 1)] * depth);
+}
 
 inline double Random_Pick2(int a, int b)
 {
