@@ -148,10 +148,12 @@ protected:
     int ConnectionNum;     // local connection #, 0=not logged in
 
     /**
-     *  Array of connection queues
+     *  Array of connection queues.
      */
+public:
     IPXConnClass* Connection[CONNECT_MAX]; // array of connection object ptrs
     int NumConnections;                    // # connection objects in use
+protected:
     IPXGlobalConnClass* GlobalChannel;     // the Global Channel
 
     /**
@@ -160,12 +162,14 @@ protected:
     int CurConnection;
 
     /**
-     *  Timing parameters for all connections
+     *  Timing parameters for all connections.
      */
+public:
     unsigned long RetryDelta;
     unsigned long MaxRetries;
     unsigned long Timeout;
 
+protected:
     /**
      *  This is a structure that mirrors data in real-mode memory:
      */
