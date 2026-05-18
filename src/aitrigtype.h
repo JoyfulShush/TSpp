@@ -70,23 +70,23 @@ public:
 
 public:
     AITriggerEventType Type;
-    int field_64;
+    int Scope;
     AITriggerHouseType OwnerHouseType;
     bool IsEnabled;
-    HousesType House;
-    SideType MultiSide;
+    int House;
+    int MultiSide;
     int TechLevel;
     double Weight;
     double MinWeight;
     double MaxWeight;
-    bool IsForSkirmish;
+    bool IsAvailableInSkirmish;
     bool IsForBaseDefense;
-    bool EnabledInEasy;
-    bool EnabledInMedium;
-    bool EnabledInHard;
+    bool IsEnabledInEasy;
+    bool IsEnabledInMedium;
+    bool IsEnabledInHard;
     TechnoTypeClass* ConditionObject;
-    TeamTypeClass* TeamOne;
-    TeamTypeClass* TeamTwo;
+    TeamTypeClass* TeamTypeOne;
+    TeamTypeClass* TeamTypeTwo;
 
     typedef struct ParameterStruct {
         int Number;
