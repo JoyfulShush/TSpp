@@ -274,8 +274,8 @@ public:
     void Update_Radar_Spied(HouseClass* house); // 004C98E0
     void Clear_Anger(HouseClass* house);        // 004C9990
     void Recalc_Threat_Regions();               // 004C99D0
-    // 004C9B80
-    // 004C9BC0
+    int Owned_Team_Count(TeamTypeClass const * teamtype) const;
+    bool Can_Create_Team(TeamTypeClass const * teamtype);
     // 004C9CB0
     void AI_Super_Weapons();
     void Super_Weapon_Ion_Cannon(SuperClass* super);

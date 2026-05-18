@@ -2703,8 +2703,8 @@ DEFINE_IMPLEMENTATION(void HouseClass::Update_Factories(RTTIType), 0x004C9740);
 DEFINE_IMPLEMENTATION(void HouseClass::Update_Radar_Spied(HouseClass*), 0x004C98E0);
 DEFINE_IMPLEMENTATION(void HouseClass::Clear_Anger(HouseClass*), 0x004C9990);
 DEFINE_IMPLEMENTATION(void HouseClass::Recalc_Threat_Regions(), 0x004C99D0);
-// 004C9B80
-// 004C9BC0
+DEFINE_IMPLEMENTATION(int HouseClass::Owned_Team_Count(TeamTypeClass const * teamtype) const, 0x004C9B80);
+DEFINE_IMPLEMENTATION(bool HouseClass::Can_Create_Team(TeamTypeClass const * teamtype), 0x004C9BC0);
 // 004C9CB0
 DEFINE_IMPLEMENTATION(void HouseClass::AI_Super_Weapons(), 0x004C9EA0);
 DEFINE_IMPLEMENTATION(void HouseClass::Super_Weapon_Ion_Cannon(SuperClass*), 0x004C9FB0);
