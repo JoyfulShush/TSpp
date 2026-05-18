@@ -18,6 +18,7 @@
 
 class DSurface;
 class BSurface;
+class TechnoClass;
 
 
 struct RadarTrackingStruct {
@@ -74,38 +75,37 @@ public:
     void Draw_Names();
     // 005B99D0
     void Compute_Radar_Image();
-    // 005B9D10
-    // 005BA3E0
-    // 005BA590
-    // 005BA600
-    // 005BA690
+    Rect Compute_Background(Rect const& a1, Rect& a2, bool a3);
+    void Fill_In_Background(Rect const& a1, Rect const& a2);
+    Rect Cell_Radar_Rect(Cell const& cell);
+    Rect Cell_To_Radar_Pixel(Cell const& cell);
+    Cell Radar_Pixel_To_Cell(Point2D const& point);
     void Radar_Background(const Cell& cell);
-    // 005BA790
-    // 005BAAA0
-    // 005BAC80
+    void Plot_Radar_Background();
+    void Radar_Track(TechnoClass* techno, Point2D point);
+    void Radar_Untrack(TechnoClass* techno, Point2D point);
     Point2D Coord_To_Radar_Pixel(Coord const& coord, bool clip);
-    // 005BAE10
-    // 005BAED0
-    // 005BAFD0
-    // 005BB060
-    // 005BB180
-    // 005BB4D0
+    void Init_Radar();
+    void Reset_Radar();
+    void Clear_Radar();
+    void Post_Load_Radar_Fixup();
+    void Plot_Radar_Pixel(Point2D const& point);
+    void Render_Tracked_Objects();
     void Radar_Pixel(Point2D const& point);
-    // 005BB6F0
-    // 005BB8C0
-    // 005BB8E0
-    // 005BBA90
-    // 005BBE50
-    // 005BBED0
+    void Compute_Foundations();
+    void Radar_Cell(Cell const& cell);
+    void Resolve_Radar_Point(Point2D const& point, Cell& cell, ObjectClass*& object);
+    void Set_Radar_State(bool state);
+    bool Is_Radar_Active();
     bool Radar_Activate(int control);
-    // 005BC050
+    bool Is_Radar_Tactical();
     bool Is_Radar_Existing();
     void Toggle_Radar(bool tactical_availability);
     bool Is_Player_Names();
-    // 005BC170
+    bool Is_Playing_Movie();
     void Redraw_Radar(bool a1);
-    // 005BC1C0
-    // 005BCC40
+    void Render_Radar();
+    void Play_Movie();
     void Total_Radar_Refresh();
 
     void Clear_Background_Update_Stack() { BackgroundUpdateStack.Clear(); }
