@@ -9,11 +9,7 @@
 #pragma once
 
 #include "always.h"
-#include <algorithm>
 #include <cstdio>
-#include <dbghelp.h>
-#include <string>
-#include <vector>
 
 
 // #define OUTPUT_MANGLED_NAMES 1
@@ -29,75 +25,10 @@
 #endif
 
 
-extern DWORD64 TSPP_GAME_EXE_START;
-extern DWORD64 TSPP_GAME_EXE_END;
-
-
-struct TSPP_SymbolEntry {
-    DWORD64 address;  // Absolute address of the symbol
-    std::string name; // Symbol name
-};
-
-struct TSPP_ModuleEntry {
-    DWORD64 start;    // Start address of the module
-    DWORD64 end;      // End address of the module
-    std::string name; // Module name
-};
-
-
-// List of declared and known symbols from the target exe.
-extern std::vector<TSPP_SymbolEntry> TSPP_Symbols;
-extern std::vector<TSPP_ModuleEntry> TSPP_Modules;
-
-
-/**
- *  Handy little struct that allows us to populate a vector of known symbols while also declaring them!
- */
-struct TSPP_AutoSymbolRegister {
-    TSPP_AutoSymbolRegister(DWORD64 addr, const char* name, bool undecorate = false)
-    {
-        if (undecorate) {
-            static char unmangled[512];
-            UnDecorateSymbolName(name, unmangled, sizeof(unmangled), UNDNAME_COMPLETE);
-            name = unmangled;
-        }
-
-        Register(addr, name);
-    }
-
-    inline void Register(DWORD64 addr, const char* name) { TSPP_Symbols.push_back({addr, name}); }
-
-    // Sort by address for binary search
-    static void Sort()
-    {
-        std::sort(TSPP_Symbols.begin(), TSPP_Symbols.end(), [](const TSPP_SymbolEntry& a, const TSPP_SymbolEntry& b) { return a.address < b.address; });
-    }
-};
-
-struct TSPP_ModuleRegister {
-    TSPP_ModuleRegister(DWORD64 start, DWORD64 end, const char* name) { Register(start, end, name); }
-
-    inline void Register(DWORD64 start, DWORD64 end, const char* name) { TSPP_Modules.push_back({start, end, name}); }
-
-    // Sort by address for binary search
-    static void Sort()
-    {
-        std::sort(TSPP_Modules.begin(), TSPP_Modules.end(), [](const TSPP_ModuleEntry& a, const TSPP_ModuleEntry& b) { return a.start < b.start; });
-    }
-};
-
-
-// Macro used to register the declerations from tspp_defs.asm manually.
-#define REGISTER_ASM_SYMBOL(prototype, addr) static TSPP_AutoSymbolRegister _tspp_asm_reg_##addr(addr, prototype, true);
-
-#define REGISTER_MODULE(start, end, name) static TSPP_ModuleRegister _tspp_module_reg_##start##_##end(start, end, name);
-
-
 /**
  *  DEFINE_IMPLEMENTATION(prototype, address)
  *
- *  This macro defines a naked function that jumps to a hardcoded address, and automatically
- *  registers the symbol (address + mangled name) for debugging or stack tracing tools.
+ *  Defines a naked function that jumps to a hardcoded address.
  *
  *  Requirements:
  *  - The function `prototype` must already be declared (e.g., in a class or header).
@@ -106,10 +37,6 @@ struct TSPP_ModuleRegister {
  *  Parameters:
  *  - prototype: The full function prototype including namespace/class (e.g., int Pipe::Flush()).
  *  - address:   The absolute memory address the function should jump to.
- *
- *  Behavior:
- *  - Defines a naked function that jumps to `address`.
- *  - Registers the mangled function name (__FUNCDNAME__) with TSPP_AutoSymbolRegister at global init.
  *
  *  Example:
  *      class Pipe { public: int Flush(); };
@@ -120,26 +47,12 @@ struct TSPP_ModuleRegister {
  *
  */
 #define DEFINE_IMPLEMENTATION(prototype, address) \
-    namespace { \
-    static struct TSPP_AutoRegister_##address { \
-        TSPP_AutoRegister_##address() { \
-            TSPP_AutoSymbolRegister(address, #prototype); \
-        } \
-    } _tspp_auto_register_##address; \
-    } \
     /*[[ noreturn ]]*/ __declspec(noinline) __declspec(naked) prototype { \
         _asm { mov eax, address } \
         _asm { jmp eax } \
     }
 
 #define DEFINE_IMPLEMENTATION_INLINE(prototype, address, ...) \
-    namespace { \
-    static struct TSPP_AutoRegister_##address { \
-        TSPP_AutoRegister_##address() { \
-            TSPP_AutoSymbolRegister(address, #prototype); \
-        } \
-    } _tspp_auto_register_##address; \
-    } \
     /*[[ noreturn ]]*/ inline __declspec(naked) prototype { \
         OUTPUT_MANGLED_NAME(address, __FUNCDNAME__) \
         _asm { mov eax, address } \
@@ -147,13 +60,6 @@ struct TSPP_ModuleRegister {
     }
 
 #define DEFINE_IMPLEMENTATION_UNWIND(prototype, address, ...) \
-    namespace { \
-    static struct TSPP_AutoRegister_##address { \
-        TSPP_AutoRegister_##address() { \
-            TSPP_AutoSymbolRegister(address, #prototype); \
-        } \
-    } _tspp_auto_register_##address; \
-    } \
     /*[[ noreturn ]]*/ \
     prototype { \
         OUTPUT_MANGLED_NAME(address, __FUNCDNAME__) \
@@ -190,13 +96,6 @@ struct TSPP_ModuleRegister {
 #endif
 
 #define DEFINE_IMPLEMENTATION_CONSTRUCTOR(prototype, address, ...) \
-    namespace { \
-    static struct TSPP_AutoRegister_##address { \
-        TSPP_AutoRegister_##address() { \
-            TSPP_AutoSymbolRegister(address, #prototype); \
-        } \
-    } _tspp_auto_register_##address; \
-    } \
     /*[[ noreturn ]]*/ __declspec(noinline) prototype { \
         OUTPUT_MANGLED_NAME(address, __FUNCDNAME__) \
         _asm { mov ecx, this } \
@@ -208,13 +107,6 @@ struct TSPP_ModuleRegister {
 
 // For classes with a base class that has no default constructor available.
 #define DEFINE_IMPLEMENTATION_CONSTRUCTOR_BASE(prototype, base, address, ...) \
-    namespace { \
-    static struct TSPP_AutoRegister_##address { \
-        TSPP_AutoRegister_##address() { \
-            TSPP_AutoSymbolRegister(address, #prototype); \
-        } \
-    } _tspp_auto_register_##address; \
-    } \
     /*[[ noreturn ]]*/ __declspec(noinline) prototype: \
     base(NoInitClass()) { \
         OUTPUT_MANGLED_NAME(address, __FUNCDNAME__) \
@@ -254,13 +146,6 @@ struct TSPP_ModuleRegister {
 #endif
 
 #define DEFINE_IMPLEMENTATION_DESTRUCTOR(prototype, address, ...) \
-    namespace { \
-    static struct TSPP_AutoRegister_##address { \
-        TSPP_AutoRegister_##address() { \
-            TSPP_AutoSymbolRegister(address, #prototype); \
-        } \
-    } _tspp_auto_register_##address; \
-    } \
     /*[[ noreturn ]]*/ __declspec(noinline) prototype { \
         __pragma(message(__FUNCDNAME__)) \
                 OUTPUT_MANGLED_NAME(address, __FUNCDNAME__) DESTRUCTOR_EPILOG; \
