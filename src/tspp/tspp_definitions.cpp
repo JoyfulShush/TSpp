@@ -5610,23 +5610,23 @@ DEFINE_IMPLEMENTATION(void OwnerDraw::Init_Masks(), 0x0059CBC0);
 DEFINE_IMPLEMENTATION(void OwnerDraw::Cache_Images(), 0x0059CC40);
 DEFINE_IMPLEMENTATION(void OwnerDraw::Initialize(), 0x0058F060);
 
-int& BorderThickness = Make_Global<int>(0x00809218);
-int& ColorSteps = Make_Global<int>(0x00809250);
-int& ScrollBarAdj = Make_Global<int>(0x00808B6C);
-COLORREF& TextColor1 = Make_Global<COLORREF>(0x00808B7C);
-COLORREF& TextColor2 = Make_Global<COLORREF>(0x00808B68);
-COLORREF& CommonColor1 = Make_Global<COLORREF>(0x00809248);
-COLORREF& CommonColor2 = Make_Global<COLORREF>(0x00809244);
-COLORREF& ListBoxColor = Make_Global<COLORREF>(0x00809230);
-COLORREF& TooltipBoxColor = Make_Global<COLORREF>(0x008093A4);
-COLORREF& ColorUnused1 = Make_Global<COLORREF>(0x00808E30);
+int& OwnerDraw::BorderThickness = Make_Global<int>(0x00809218);
+int& OwnerDraw::ColorSteps = Make_Global<int>(0x00809250);
+int& OwnerDraw::ScrollBarAdj = Make_Global<int>(0x00808B6C);
+COLORREF& OwnerDraw::TextColor1 = Make_Global<COLORREF>(0x00808B7C);
+COLORREF& OwnerDraw::TextColor2 = Make_Global<COLORREF>(0x00808B68);
+COLORREF& OwnerDraw::CommonColor1 = Make_Global<COLORREF>(0x00809248);
+COLORREF& OwnerDraw::CommonColor2 = Make_Global<COLORREF>(0x00809244);
+COLORREF& OwnerDraw::ListBoxColor = Make_Global<COLORREF>(0x00809230);
+COLORREF& OwnerDraw::TooltipBoxColor = Make_Global<COLORREF>(0x008093A4);
+COLORREF& OwnerDraw::ColorUnused1 = Make_Global<COLORREF>(0x00808E30);
 
-HFONT& FontPtr1 = Make_Global<HFONT>(0x00808D20);
-HFONT& FontPtr2 = Make_Global<HFONT>(0x00809240);
-char const*& FontName1 = Make_Global<char const*>(0x007071D0);
-char const*& FontName2 = Make_Global<char const*>(0x007071D4);
-int& FontSize1 = Make_Global<int>(0x007071D8);
-int& FontSize2 = Make_Global<int>(0x007071DC);
+HFONT& OwnerDraw::FontPtr1 = Make_Global<HFONT>(0x00808D20);
+HFONT& OwnerDraw::FontPtr2 = Make_Global<HFONT>(0x00809240);
+char const*& OwnerDraw::FontName1 = Make_Global<char const*>(0x007071D0);
+char const*& OwnerDraw::FontName2 = Make_Global<char const*>(0x007071D4);
+int& OwnerDraw::FontSize1 = Make_Global<int>(0x007071D8);
+int& OwnerDraw::FontSize2 = Make_Global<int>(0x007071DC);
 
 
 /**
