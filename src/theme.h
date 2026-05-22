@@ -46,8 +46,8 @@ public:
     const char* Theme_File_Name(ThemeType theme);
     void Scan();
 
-    void Set_Shuffle(int on) { IsRepeat = on; }
-    void Set_Repeat(int on) { IsShuffle = on; }
+    void Set_Shuffle(int on) { IsShuffle = on; }
+    void Set_Repeat(int on) { IsRepeat = on; }
 
 public:
     typedef struct ThemeControl {
