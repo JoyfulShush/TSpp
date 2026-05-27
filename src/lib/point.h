@@ -11,6 +11,8 @@
 #include "always.h"
 #include "wwmath.h"
 
+#include <format>
+
 
 template<typename T>
 class TPoint2D
@@ -100,6 +102,32 @@ public:
 
 public:
     T Z;
+};
+
+
+/**
+ *  std::format support — produces "x, y" / "x, y, z".
+ */
+template<typename T>
+struct std::formatter<TPoint2D<T>>
+{
+    constexpr auto parse(std::format_parse_context& ctx) { return ctx.begin(); }
+
+    auto format(const TPoint2D<T>& p, std::format_context& ctx) const
+    {
+        return std::format_to(ctx.out(), "{}, {}", p.X, p.Y);
+    }
+};
+
+template<typename T>
+struct std::formatter<TPoint3D<T>>
+{
+    constexpr auto parse(std::format_parse_context& ctx) { return ctx.begin(); }
+
+    auto format(const TPoint3D<T>& p, std::format_context& ctx) const
+    {
+        return std::format_to(ctx.out(), "{}, {}, {}", p.X, p.Y, p.Z);
+    }
 };
 
 

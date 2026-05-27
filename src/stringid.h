@@ -8,6 +8,7 @@
  ******************************************************************************/
 #pragma once
 #include <algorithm>
+#include <format>
 #include <string>
 #include "noinit.h"
 #include "tspp_assert.h"
@@ -185,6 +186,20 @@ constexpr TStringID<N> operator+(TStringID<N> lhs, std::string_view rhs) noexcep
 }
 
 /**
+ *  std::format support for TStringID — delegates to std::string_view's formatter
+ *  so spec like `{:>20}` and friends work as expected.
+ */
+template<std::size_t N>
+struct std::formatter<TStringID<N>> : std::formatter<std::string_view>
+{
+    auto format(const TStringID<N>& s, std::format_context& ctx) const
+    {
+        return std::formatter<std::string_view>::format(std::string_view(s), ctx);
+    }
+};
+
+
+/**
  *  An extension of TStringID that caches the string's length.
  *  Should be used in any new applications.
  */
@@ -275,4 +290,17 @@ public:
 
 private:
     size_type Length;
+};
+
+
+/**
+ *  std::format support for FixedString — delegates to std::string_view's formatter.
+ */
+template<std::size_t N>
+struct std::formatter<FixedString<N>> : std::formatter<std::string_view>
+{
+    auto format(const FixedString<N>& s, std::format_context& ctx) const
+    {
+        return std::formatter<std::string_view>::format(std::string_view(s), ctx);
+    }
 };
