@@ -10,6 +10,8 @@
 
 #include "always.h"
 
+#include <format>
+
 
 class NoInitClass;
 
@@ -400,3 +402,43 @@ inline float ProgressTimerClass<T>::Percent_Expired() const
     }
     return (float)Value() / (float)rate;
 }
+
+
+/**
+ *  std::format support — prints the timer's current value as a number.
+ */
+template<typename T>
+struct std::formatter<BasicTimerClass<T>> : std::formatter<long>
+{
+    auto format(const BasicTimerClass<T>& timer, std::format_context& ctx) const
+    {
+        return std::formatter<long>::format(timer.Value(), ctx);
+    }
+};
+
+template<typename T>
+struct std::formatter<TTimerClass<T>> : std::formatter<long>
+{
+    auto format(const TTimerClass<T>& timer, std::format_context& ctx) const
+    {
+        return std::formatter<long>::format(timer.Value(), ctx);
+    }
+};
+
+template<typename T>
+struct std::formatter<CDTimerClass<T>> : std::formatter<long>
+{
+    auto format(const CDTimerClass<T>& timer, std::format_context& ctx) const
+    {
+        return std::formatter<long>::format(timer.Value(), ctx);
+    }
+};
+
+template<typename T>
+struct std::formatter<ProgressTimerClass<T>> : std::formatter<long>
+{
+    auto format(const ProgressTimerClass<T>& timer, std::format_context& ctx) const
+    {
+        return std::formatter<long>::format(timer.Value(), ctx);
+    }
+};
