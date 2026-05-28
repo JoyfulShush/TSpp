@@ -83,7 +83,7 @@ public:
     Rect const Get_Rect(char const* section, char const* entry, Rect const& defvalue) const;
     CLSID const Get_UUID(char const* section, char const* entry, CLSID defvalue) const;
 
-    std::string Get_String(char const* section, char const* entry, std::string const& defvalue) const;
+    std::string Get_String(char const* section, char const* entry, std::string_view defvalue) const;
     std::string Get_TextBlock(char const* section) const;
 
     /**
