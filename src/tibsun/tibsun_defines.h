@@ -717,6 +717,10 @@ typedef enum OverlayType {
 } OverlayType;
 DEFINE_ENUMERATION_OPERATORS(OverlayType);
 
+#define OVERLAYDATA_LOWBRIDGE_FRAME_TOP 0
+#define OVERLAYDATA_LOWBRIDGE_FRAME_MIDDLE 1
+#define OVERLAYDATA_LOWBRIDGE_FRAME_BOTTOM 2
+
 typedef enum AnimType {
     ANIM_NONE = -1,
 
