@@ -40,13 +40,13 @@ bool INIClass::Is_Present(const char* section, const char* entry) const
 }
 
 
-std::string INIClass::Get_String(char const* section, char const* entry, std::string_view defvalue) const
+std::string INIClass::Get_String(char const* section, char const* entry, std::string const& defvalue) const
 {
     char buffer[8096];
-    if (Get_String(section, entry, std::string(defvalue).c_str(), buffer, std::size(buffer)) > 0) {
-        return buffer;
+    if (Get_String(section, entry, defvalue.c_str(), buffer, std::size(buffer)) > 0) {
+        return std::string(buffer);
     }
-    return std::string(defvalue);
+    return defvalue;
 }
 
 
