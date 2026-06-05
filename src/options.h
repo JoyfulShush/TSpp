@@ -37,6 +37,8 @@ public:
     int Normalize_Delay(int delay) const;
     int Normalize_Volume(int volume) const;
 
+    bool Hotkey_Dialog();
+
     void Load_Settings();
     void Save_Settings();
 

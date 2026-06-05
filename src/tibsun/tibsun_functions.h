@@ -92,3 +92,8 @@ TechnoClass* As_TechnoClass(AbstractClass* target);
 TechnoClass* As_Techno(AbstractClass* target);
 
 bool On_WM_MOVING(HWND window, WPARAM wparam, LPARAM lparam);
+
+void Game_Options_Dialog();
+int Abort_Dialog();
+void DoFindPage();
+int Surrender_Dialog(int text);

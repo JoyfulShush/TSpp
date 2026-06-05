@@ -95,6 +95,7 @@
 #include "ftimer.h"
 #include "fuse.h"
 #include "gadget.h"
+#include "gamedlg.h"
 #include "gametime.h"
 #include "gauge.h"
 #include "gcntrl.h"
@@ -193,6 +194,7 @@
 #include "slider.h"
 #include "smudge.h"
 #include "smudgetype.h"
+#include "sounddlg.h"
 #include "special.h"
 #include "spotlight.h"
 #include "sprite.h"
@@ -362,6 +364,7 @@ DEFINE_IMPLEMENTATION(void OptionsClass::Set_Sound_Volume(float, bool), 0x00589B
 DEFINE_IMPLEMENTATION(void OptionsClass::Set_Voice_Volume(float, bool), 0x00589B70);
 DEFINE_IMPLEMENTATION(int OptionsClass::Normalize_Delay(int) const, 0x0058A600);
 DEFINE_IMPLEMENTATION(int OptionsClass::Normalize_Volume(int) const, 0x0058A630);
+DEFINE_IMPLEMENTATION(bool OptionsClass::Hotkey_Dialog(), 0x0058B170);
 DEFINE_IMPLEMENTATION(void OptionsClass::Load_Settings(), 0x00589C10);
 DEFINE_IMPLEMENTATION(void OptionsClass::Save_Settings(), 0x0058A140);
 DEFINE_IMPLEMENTATION(void OptionsClass::Set(), 0x0058A4E0);
@@ -5682,6 +5685,12 @@ DEFINE_IMPLEMENTATION(void Set_Voxel_Light_Angle(float), 0x004E8AE0);
 DEFINE_IMPLEMENTATION(void Init_Voxel_Matrices(), 0x00666E50);
 DEFINE_IMPLEMENTATION(void Init_Voxel_Palette(FileClass*), 0x00665DA0);
 DEFINE_IMPLEMENTATION(bool On_WM_MOVING(HWND, WPARAM, LPARAM), 0x00685300);
+DEFINE_IMPLEMENTATION(void Game_Options_Dialog(), 0x004B6750);
+DEFINE_IMPLEMENTATION(void GameControlsClass::Dialog(), 0x004AA490);
+DEFINE_IMPLEMENTATION(void SoundControlsClass::Dialog(), 0x005FC0B0);
+DEFINE_IMPLEMENTATION(int Abort_Dialog(), 0x004B6EB0);
+DEFINE_IMPLEMENTATION(void DoFindPage(), 0x006875C0);
+DEFINE_IMPLEMENTATION(int Surrender_Dialog(int text), 0x00564D20);
 
 
 DEFINE_IMPLEMENTATION(const char* Name_From_RTTI(RTTIType), 0x00403500);
@@ -5868,6 +5877,7 @@ unsigned& FramesPerSecond = Make_Global<unsigned>(0x00804D2C);
 int& RequiredAddon = Make_Global<int>(0x0074C9F8);
 bool& GameActive = Make_Global<bool>(0x007E4580);
 SpecialDialogType& SpecialDialog = Make_Global<SpecialDialogType>(0x007E4940);
+bool& SpecialDialogFlag = Make_Global<bool>(0x006FB630);
 int& BuildLevel = Make_Global<int>(0x006FB628);
 SpriteCollectionClass& SpriteCollection = Make_Global<SpriteCollectionClass>(0x00809360);
 StaticBufferClass& StaticBuffer = Make_Global<StaticBufferClass>(0x0074C728);

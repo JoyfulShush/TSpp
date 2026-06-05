@@ -309,6 +309,7 @@ extern unsigned& FramesPerSecond;
 extern int& RequiredAddon;
 extern bool& GameActive;
 extern SpecialDialogType& SpecialDialog;
+extern bool& SpecialDialogFlag;
 extern int& BuildLevel;
 extern bool& PlayerWins;
 extern bool& PlayerLoses;
