@@ -336,7 +336,7 @@ target_compile_options(${PROJECT_NAME} PUBLIC
 
 # Build with multiple processes.
 target_compile_options(${PROJECT_NAME} PUBLIC
-    $<$<COMPILE_LANGUAGE:CXX>:/MP2>
+    $<$<COMPILE_LANGUAGE:CXX>:/MP>
 )
 
 # Add the .natvis file for Visual Studio debugging
