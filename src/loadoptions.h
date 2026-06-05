@@ -61,7 +61,7 @@ public:
     void Fill_List(HWND hWnd);
     bool Read_Save_Files();
 
-private:
+public:
     OperationModeEnum Style;
     char* Extension;
     char* Description;
