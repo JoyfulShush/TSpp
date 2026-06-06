@@ -22,6 +22,7 @@ public:
     RGBClass(const RGBStruct& that);
     RGBClass(const RGBClass& that);
     RGBClass(unsigned char red, unsigned char green, unsigned char blue);
+    RGBClass(NoInitClass const& x) {}
 
     operator HSVClass() const;
     operator RGBStruct() const { return RGBStruct {Red, Green, Blue}; }
