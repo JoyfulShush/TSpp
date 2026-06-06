@@ -14,6 +14,7 @@
 
 
 class FileClass;
+class HouseClass;
 class Surface;
 class PaletteClass;
 class ObjectClass;
@@ -97,3 +98,9 @@ void Game_Options_Dialog();
 int Abort_Dialog();
 void DoFindPage();
 int Surrender_Dialog(int text);
+
+void Send_Statistics_Packet();
+void Register_Game_End_Time();
+int Count_Alive_Teams(HouseClass* house);
+void Destroy_Null_Connection(int id, int error);
+void Shutdown_Modem();

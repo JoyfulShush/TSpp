@@ -5692,6 +5692,11 @@ DEFINE_IMPLEMENTATION(int Abort_Dialog(), 0x004B6EB0);
 DEFINE_IMPLEMENTATION(void DoFindPage(), 0x006875C0);
 DEFINE_IMPLEMENTATION(int Surrender_Dialog(int text), 0x00564D20);
 
+DEFINE_IMPLEMENTATION(void Send_Statistics_Packet(), 0x00609470);
+DEFINE_IMPLEMENTATION(void Register_Game_End_Time(), 0x0060A840);
+DEFINE_IMPLEMENTATION(int Count_Alive_Teams(HouseClass* house), 0x0057C4B0);
+DEFINE_IMPLEMENTATION(void Destroy_Null_Connection(int id, int error), 0x005815E0);
+DEFINE_IMPLEMENTATION(void Shutdown_Modem(), 0x005814A0);
 
 DEFINE_IMPLEMENTATION(const char* Name_From_RTTI(RTTIType), 0x00403500);
 DEFINE_IMPLEMENTATION(RTTIType RTTI_From_Name(const char*), 0x00403530);
