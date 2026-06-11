@@ -419,8 +419,8 @@ public:
     int PrecalcMaxAhead;
     int PrecalcDesiredFrameRate;
     MPStatsType Stats[MAX_MULTI_NAMES];
-    char field_418[24];
-    int field_430;
+    char MasterPlayerName[24]; // MPLAYER_NAME_MAX + 1 chars used, padded to 24 bytes
+    int MasterPlayerID;
     bool MPlayerDebug;
     int LoadGame;
     int EmergencySave;
