@@ -16,6 +16,11 @@ namespace OwnerDraw
 void Init_Masks();
 void Cache_Images();
 void Initialize();
+bool SubclassDlg(HWND window, LPARAM lparam);
+void DrawItem(DRAWITEMSTRUCT* drawitem);
+void DrawDialogBack(HWND window);
+int Capture_Mouse();
+int Release_Mouse();
 
 extern int& BorderThickness;
 extern int& ColorSteps;

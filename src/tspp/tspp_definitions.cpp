@@ -3229,6 +3229,10 @@ DEFINE_IMPLEMENTATION(void WinDialogClass::End_Dialog(HWND), 0x005A0700);
 DEFINE_IMPLEMENTATION(HWND WinDialogClass::Do_Message_Box(const char*, const char*, bool*), 0x005A0C60);
 DEFINE_IMPLEMENTATION(bool WinDialogClass::Center_Window_Within(HWND, HWND), 0x00685600);
 DEFINE_IMPLEMENTATION(bool WinDialogClass::Center_Window(HWND), 0x006855E0);
+DEFINE_IMPLEMENTATION(HWND WSCreateDialog(HINSTANCE, int, HWND, BOOL (CALLBACK*)(HWND, UINT, WPARAM, LPARAM), BOOL), 0x00682FF0);
+DEFINE_IMPLEMENTATION(bool WSDestroyDialog(HWND, int), 0x006830D0);
+DEFINE_IMPLEMENTATION(HWND WSFindDialog(int), 0x00683280);
+DEFINE_IMPLEMENTATION(void Resize_Dialogs(HWND), 0x00683DD0);
 
 DEFINE_IMPLEMENTATION(void Fatal(const char*, ...), 0x004F91D0);
 DEFINE_IMPLEMENTATION(void Emergency_Exit(int), 0x00602480);
@@ -5612,6 +5616,11 @@ GameTimeClass& Game_Time = Make_Global<GameTimeClass>(0x007B340C);
 DEFINE_IMPLEMENTATION(void OwnerDraw::Init_Masks(), 0x0059CBC0);
 DEFINE_IMPLEMENTATION(void OwnerDraw::Cache_Images(), 0x0059CC40);
 DEFINE_IMPLEMENTATION(void OwnerDraw::Initialize(), 0x0058F060);
+DEFINE_IMPLEMENTATION(bool OwnerDraw::SubclassDlg(HWND, LPARAM), 0x00590E60);
+DEFINE_IMPLEMENTATION(void OwnerDraw::DrawItem(DRAWITEMSTRUCT*), 0x0059F350);
+DEFINE_IMPLEMENTATION(void OwnerDraw::DrawDialogBack(HWND), 0x0059FE20);
+DEFINE_IMPLEMENTATION(int OwnerDraw::Capture_Mouse(), 0x005A05C0);
+DEFINE_IMPLEMENTATION(int OwnerDraw::Release_Mouse(), 0x005A05F0);
 
 int& OwnerDraw::BorderThickness = Make_Global<int>(0x00809218);
 int& OwnerDraw::ColorSteps = Make_Global<int>(0x00809250);

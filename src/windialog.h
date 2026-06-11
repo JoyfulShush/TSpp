@@ -24,4 +24,9 @@ extern HWND& CurrentWindowHandle;
 
 }; // namespace WinDialogClass
 
+HWND WSCreateDialog(HINSTANCE instance, int dlg_id, HWND parent, BOOL (CALLBACK* proc)(HWND, UINT, WPARAM, LPARAM), BOOL force_show);
+bool WSDestroyDialog(HWND dialog, int id);
+HWND WSFindDialog(int dlg_id);
+void Resize_Dialogs(HWND dialog);
+
 extern int& WSDialogCount;
