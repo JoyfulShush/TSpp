@@ -5621,6 +5621,8 @@ DEFINE_IMPLEMENTATION(void OwnerDraw::DrawItem(DRAWITEMSTRUCT*), 0x0059F350);
 DEFINE_IMPLEMENTATION(void OwnerDraw::DrawDialogBack(HWND), 0x0059FE20);
 DEFINE_IMPLEMENTATION(int OwnerDraw::Capture_Mouse(), 0x005A05C0);
 DEFINE_IMPLEMENTATION(int OwnerDraw::Release_Mouse(), 0x005A05F0);
+DEFINE_IMPLEMENTATION(HWND OwnerDraw::BeginDialog(int, BOOL (CALLBACK*)(HWND, UINT, WPARAM, LPARAM)), 0x005A0630);
+DEFINE_IMPLEMENTATION(void OwnerDraw::EndDialog(HWND), 0x005A0700);
 
 int& OwnerDraw::BorderThickness = Make_Global<int>(0x00809218);
 int& OwnerDraw::ColorSteps = Make_Global<int>(0x00809250);
