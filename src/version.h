@@ -57,3 +57,6 @@ private:
     unsigned MinorInit : 1;
     unsigned TextInit : 1;
 };
+
+
+const char* Version_Name();

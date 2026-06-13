@@ -187,6 +187,8 @@ extern Surface*& CompositeSurface;
 extern Surface*& EightBitSurface;
 extern Random2Class& NonCriticalRandomNumber;
 extern long& Frame;
+extern unsigned& TotalFrames;
+extern unsigned& SecondsPassed;
 extern ScenarioClass*& Scen;
 extern SessionClass& Session;
 extern SwizzleManagerClass& SwizzleManager;

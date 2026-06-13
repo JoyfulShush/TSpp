@@ -1127,6 +1127,7 @@ DEFINE_IMPLEMENTATION(void VersionClass::Init_Clipping(), 0x00664160);
 DEFINE_IMPLEMENTATION(unsigned long VersionClass::Clip_Version(unsigned long, unsigned long), 0x00664170);
 DEFINE_IMPLEMENTATION(unsigned long VersionClass::Min_Version(), 0x006641B0);
 DEFINE_IMPLEMENTATION(unsigned long VersionClass::Max_Version(), 0x006641C0);
+DEFINE_IMPLEMENTATION(const char* Version_Name(), 0x006641D0);
 
 DEFINE_IMPLEMENTATION(int RLEClass::Compress(void*, void*, int), 0x005C3490);
 DEFINE_IMPLEMENTATION(int RLEClass::Uncompress(void*, void*), 0x005C3540);
@@ -5764,6 +5765,8 @@ Surface*& CompositeSurface = Make_Global<Surface*>(0x0074C5EC);
 Surface*& EightBitSurface = Make_Global<Surface*>(0x0080FA54);
 Random2Class& NonCriticalRandomNumber = Make_Global<Random2Class>(0x0074BE40);
 long& Frame = Make_Global<long>(0x007E4924);
+unsigned& TotalFrames = Make_Global<unsigned>(0x00804D30);
+unsigned& SecondsPassed = Make_Global<unsigned>(0x00804D34);
 ScenarioClass*& Scen = Make_Global<ScenarioClass*>(0x007E2438);
 SessionClass& Session = Make_Global<SessionClass>(0x007E2458);
 SwizzleManagerClass& SwizzleManager = Make_Global<SwizzleManagerClass>(0x0080CD50);
