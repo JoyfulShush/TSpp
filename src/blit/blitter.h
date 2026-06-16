@@ -17,6 +17,14 @@ public:
     Blitter() {}
     virtual ~Blitter() {}
 
-    virtual void entry_4(void* dest, void* source, unsigned length, unsigned short z_min = 0x8000, int* z_buff = nullptr, int* alpha_buff = nullptr, int alpha_level = 1000, int warp_offset = 0) = 0;
-    virtual void entry_8(void* dest, void* source, unsigned length, unsigned short z_min = 0x8000, int* z_buff = nullptr, int* alpha_buff = nullptr, int alpha_level = 1000) = 0;
+    /**
+     *  Blits from source to dest (starts at first pixel). The preferred, ~99%-of-the-time path.
+     */
+    virtual void BlitForward(void* dest, void const* source, int length, int z_min = 0, void* z_buff = nullptr, void* a_buff = nullptr, int alpha_level = 1000, int warp_offset = 0) const = 0;
+
+    /**
+     *  Copies the pixels in reverse order. Only required when the source and dest regions
+     *  overlap in a certain way; rarely called.
+     */
+    virtual void BlitBackward(void* dest, void const* source, int length, int z_min = 0, void* z_buff = nullptr, void* a_buff = nullptr, int alpha_level = 1000) const = 0;
 };

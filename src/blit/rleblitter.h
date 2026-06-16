@@ -17,5 +17,5 @@ public:
     RLEBlitter() {}
     virtual ~RLEBlitter() {}
 
-    virtual void Blit(void* dest, void const* source, int length, int leadskip = 0, int z_min = 0, int z_buff = NULL, int a_buff = NULL, int alpha_level = 0, int warp_offset = 0, int zshape = NULL) const = 0;
+    virtual void Blit(void* dest, void const* source, int length, int leadskip = 0, int z_min = 0, void* z_buff = nullptr, void* a_buff = nullptr, int alpha_level = 0, int warp_offset = 0, void const* zshape = nullptr) const = 0;
 };

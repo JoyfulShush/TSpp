@@ -1,4 +1,4 @@
-﻿/*******************************************************************************
+/*******************************************************************************
 /*                     O P E N  S O U R C E  --  T S + +                      **
 /*******************************************************************************
  *  @brief  Function definitions for the TS++ project.
@@ -647,22 +647,154 @@ DEFINE_IMPLEMENTATION(void __cdecl Brighten_556(unsigned char*, unsigned short*,
 DEFINE_IMPLEMENTATION(void __cdecl Brighten_565(unsigned char*, unsigned short*, int, int, int, int), 0x006C8734);
 DEFINE_IMPLEMENTATION(void __cdecl Brighten_655(unsigned char*, unsigned short*, int, int, int, int), 0x006C8811);
 
-template<> BlitPlain<unsigned char>::BlitPlain() : Blitter() {}
-template<> BlitPlain<unsigned char>::~BlitPlain() {}
-DEFINE_IMPLEMENTATION(void BlitPlain<unsigned char>::entry_4(void*, void*, unsigned, unsigned short, int*, int*, int, int), 0x006A8CB0);
-DEFINE_IMPLEMENTATION(void BlitPlain<unsigned char>::entry_8(void*, void*, unsigned, unsigned short, int*, int*, int), 0x006A8CE0);
-template<> BlitPlain<unsigned short>::BlitPlain() : Blitter() {}
-template<> BlitPlain<unsigned short>::~BlitPlain() {}
-DEFINE_IMPLEMENTATION(void BlitPlain<unsigned short>::entry_4(void*, void*, unsigned, unsigned short, int*, int*, int, int), 0x006A8D00);
-DEFINE_IMPLEMENTATION(void BlitPlain<unsigned short>::entry_8(void*, void*, unsigned, unsigned short, int*, int*, int), 0x006A8D30);
-template<> BlitTrans<unsigned char>::BlitTrans() : Blitter() {}
-template<> BlitTrans<unsigned char>::~BlitTrans() {}
-DEFINE_IMPLEMENTATION(void BlitTrans<unsigned char>::entry_4(void*, void*, unsigned, unsigned short, int*, int*, int, int), 0x006A8BD0);
-DEFINE_IMPLEMENTATION(void BlitTrans<unsigned char>::entry_8(void*, void*, unsigned, unsigned short, int*, int*, int), 0x006A8C80);
-template<> BlitTrans<unsigned short>::BlitTrans() : Blitter() {}
-template<> BlitTrans<unsigned short>::~BlitTrans() {}
-DEFINE_IMPLEMENTATION(void BlitTrans<unsigned short>::entry_4(void*, void*, unsigned, unsigned short, int*, int*, int, int), 0x006A8D50);
-DEFINE_IMPLEMENTATION(void BlitTrans<unsigned short>::entry_8(void*, void*, unsigned, unsigned short, int*, int*, int), 0x006A8D80);
+DEFINE_IMPLEMENTATION(void BlitPlain<unsigned char>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x006A8CB0);
+DEFINE_IMPLEMENTATION(void BlitPlain<unsigned char>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x006A8CE0);
+DEFINE_IMPLEMENTATION(void BlitPlain<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x006A8D00);
+DEFINE_IMPLEMENTATION(void BlitPlain<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x006A8D30);
+DEFINE_IMPLEMENTATION(void BlitTrans<unsigned char>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x006A8BD0);
+DEFINE_IMPLEMENTATION(void BlitTrans<unsigned char>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x006A8C80);
+DEFINE_IMPLEMENTATION(void BlitTrans<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x006A8D50);
+DEFINE_IMPLEMENTATION(void BlitTrans<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x006A8D80);
+DEFINE_IMPLEMENTATION(void BlitTransXlat<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00466870);
+DEFINE_IMPLEMENTATION(void BlitTransXlat<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004668C0);
+DEFINE_IMPLEMENTATION(void BlitPlainXlat<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467530);
+DEFINE_IMPLEMENTATION(void BlitPlainXlat<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467570);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlat<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004675A0);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlat<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004675F0);
+DEFINE_IMPLEMENTATION(void BlitTransDarken<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467620);
+DEFINE_IMPLEMENTATION(void BlitTransDarken<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467660);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467690);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004676F0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467720);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467780);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004677B0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467810);
+DEFINE_IMPLEMENTATION(void BlitPlainXlatZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467840);
+DEFINE_IMPLEMENTATION(void BlitPlainXlatZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004678A0);
+DEFINE_IMPLEMENTATION(void BlitTransXlatZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004678D0);
+DEFINE_IMPLEMENTATION(void BlitTransXlatZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467940);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467970);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467A00);
+DEFINE_IMPLEMENTATION(void BlitTransDarkenZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467A30);
+DEFINE_IMPLEMENTATION(void BlitTransDarkenZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467A90);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75ZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467AC0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75ZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467B50);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50ZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467B80);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50ZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467C10);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25ZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467C40);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25ZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467CD0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75ZReadWarp<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467D00);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75ZReadWarp<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467DA0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50ZReadWarp<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467DD0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50ZReadWarp<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467E70);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25ZReadWarp<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467EA0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25ZReadWarp<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467F40);
+DEFINE_IMPLEMENTATION(void BlitPlainXlatZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00467F70);
+DEFINE_IMPLEMENTATION(void BlitPlainXlatZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00467FE0);
+DEFINE_IMPLEMENTATION(void BlitTransXlatZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468010);
+DEFINE_IMPLEMENTATION(void BlitTransXlatZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468090);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004680C0);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468150);
+DEFINE_IMPLEMENTATION(void BlitTransDarkenZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468180);
+DEFINE_IMPLEMENTATION(void BlitTransDarkenZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004681F0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75ZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468220);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75ZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004682C0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50ZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004682F0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50ZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468390);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25ZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004683C0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25ZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468460);
+DEFINE_IMPLEMENTATION(void BlitPlainXlatAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468490);
+DEFINE_IMPLEMENTATION(void BlitPlainXlatAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468530);
+DEFINE_IMPLEMENTATION(void BlitTransXlatAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468560);
+DEFINE_IMPLEMENTATION(void BlitTransXlatAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468610);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468640);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468700);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75Alpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468730);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75Alpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468800);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50Alpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468830);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50Alpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004688F0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25Alpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468920);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25Alpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004689F0);
+DEFINE_IMPLEMENTATION(void BlitTransXlatWriteAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468A20);
+DEFINE_IMPLEMENTATION(void BlitTransXlatWriteAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468A90);
+DEFINE_IMPLEMENTATION(void BlitTransXlatMultWriteAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468AC0);
+DEFINE_IMPLEMENTATION(void BlitTransXlatMultWriteAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468B30);
+DEFINE_IMPLEMENTATION(void BlitTranslucentWriteAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468B60);
+DEFINE_IMPLEMENTATION(void BlitTranslucentWriteAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468D60);
+DEFINE_IMPLEMENTATION(void BlitTranslucent50NonzeroAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468D90);
+DEFINE_IMPLEMENTATION(void BlitTranslucent50NonzeroAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468E20);
+DEFINE_IMPLEMENTATION(void BlitTranslucent50ZeroAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468E50);
+DEFINE_IMPLEMENTATION(void BlitTranslucent50ZeroAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468EE0);
+DEFINE_IMPLEMENTATION(void BlitTranslucent75NonzeroAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468F10);
+DEFINE_IMPLEMENTATION(void BlitTranslucent75NonzeroAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00468FA0);
+DEFINE_IMPLEMENTATION(void BlitTranslucent75ZeroAlpha<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00468FD0);
+DEFINE_IMPLEMENTATION(void BlitTranslucent75ZeroAlpha<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469060);
+DEFINE_IMPLEMENTATION(void BlitTransXlatAlphaZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469090);
+DEFINE_IMPLEMENTATION(void BlitTransXlatAlphaZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469170);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatAlphaZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004691A0);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatAlphaZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004692A0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75AlphaZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004692D0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75AlphaZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004693E0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50AlphaZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469410);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50AlphaZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469510);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25AlphaZRead<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469540);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25AlphaZRead<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469650);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75AlphaZReadWarp<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469680);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75AlphaZReadWarp<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469790);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50AlphaZReadWarp<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x004697C0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50AlphaZReadWarp<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x004698D0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25AlphaZReadWarp<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469900);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25AlphaZReadWarp<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469A10);
+DEFINE_IMPLEMENTATION(void BlitTransXlatAlphaZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469A40);
+DEFINE_IMPLEMENTATION(void BlitTransXlatAlphaZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469B30);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatAlphaZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469B60);
+DEFINE_IMPLEMENTATION(void BlitTransZRemapXlatAlphaZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469C40);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75AlphaZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469C70);
+DEFINE_IMPLEMENTATION(void BlitTransLucent75AlphaZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469D80);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50AlphaZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469DB0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent50AlphaZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x00469EC0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25AlphaZReadWrite<unsigned short>::BlitForward(void*, void const*, int, int, void*, void*, int, int) const, 0x00469EF0);
+DEFINE_IMPLEMENTATION(void BlitTransLucent25AlphaZReadWrite<unsigned short>::BlitBackward(void*, void const*, int, int, void*, void*, int) const, 0x0046A000);
+
+DEFINE_IMPLEMENTATION(void RLEBlitTransXlat<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A030);
+DEFINE_IMPLEMENTATION(void RLEBlitTransZRemapXlat<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A0C0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransDarken<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A160);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent75<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A1E0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent50<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A280);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent25<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A320);
+DEFINE_IMPLEMENTATION(void RLEBlitTransXlatZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A3C0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransZRemapXlatZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A4A0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransDarkenZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A5B0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent75ZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A680);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent50ZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A790);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent25ZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A890);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent75ZReadWarp<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046A9A0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent50ZReadWarp<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046AAB0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent25ZReadWarp<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046ABC0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransXlatZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046ACD0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransZRemapXlatZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046ADC0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransDarkenZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046AEE0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent75ZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046AFC0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent50ZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046B0E0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent25ZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046B1F0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransXlatAlpha<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046B310);
+DEFINE_IMPLEMENTATION(void RLEBlitTransZRemapXlatAlpha<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046B420);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent75Alpha<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046B550);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent50Alpha<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046B680);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent25Alpha<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046B7B0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransXlatAlphaZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046B8E0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransZRemapXlatAlphaZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046BA60);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent75AlphaZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046BC10);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent50AlphaZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046BDD0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent25AlphaZRead<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046BF80);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent75AlphaZReadWarp<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046C140);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent50AlphaZReadWarp<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046C310);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent25AlphaZReadWarp<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046C4D0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransXlatAlphaZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046C6A0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransZRemapXlatAlphaZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046C840);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent75AlphaZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046CA20);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent50AlphaZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046CBF0);
+DEFINE_IMPLEMENTATION(void RLEBlitTransLucent25AlphaZReadWrite<unsigned short>::Blit(void*, void const*, int, int, int, void*, void*, int, int, void const*) const, 0x0046CDE0);
 
 DEFINE_IMPLEMENTATION(AlphaLightingRemapClass* AlphaLightingRemapInitClass::Init(int), 0x00411D50);
 DEFINE_IMPLEMENTATION(void AlphaLightingRemapInitClass::Deinit(AlphaLightingRemapClass*), 0x00411E80);
