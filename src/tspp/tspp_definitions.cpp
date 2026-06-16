@@ -1483,7 +1483,7 @@ DEFINE_IMPLEMENTATION(Point2D LocomotionClass::Draw_Point(), 0x005066F0);
 DEFINE_IMPLEMENTATION(Point2D LocomotionClass::Shadow_Point(), 0x005063F0);
 DEFINE_IMPLEMENTATION(VisualType LocomotionClass::Visual_Character(bool), 0x005066E0);
 DEFINE_IMPLEMENTATION(int LocomotionClass::Z_Adjust(), 0x005066C0);
-DEFINE_IMPLEMENTATION(ZGradientType LocomotionClass::Z_Gradient(), 0x5066D0);
+DEFINE_IMPLEMENTATION(ZGradientType LocomotionClass::Z_Gradient(), 0x005066D0);
 DEFINE_IMPLEMENTATION(bool LocomotionClass::Process(), 0x00506780);
 DEFINE_IMPLEMENTATION(void LocomotionClass::Move_To(Coord), 0x00506770);
 DEFINE_IMPLEMENTATION(void LocomotionClass::Stop_Moving(), 0x00506760);
@@ -1584,47 +1584,47 @@ DEFINE_IMPLEMENTATION(void IPXManagerClass::Configure_Debug(int, int, int, char*
 DEFINE_IMPLEMENTATION(void IPXManagerClass::Mono_Debug_Print(int, int), 0x004F19B0);
 DEFINE_IMPLEMENTATION(void IPXManagerClass::Multiplayer_Debug_Print(), 0x004F10B0);
 
-//DEFINE_IMPLEMENTATION(NullModemClass::NullModemClass(int, int, int, unsigned short), 0x5826B0);
-//DEFINE_IMPLEMENTATION(NullModemClass::~NullModemClass(), 0x582740);
-DEFINE_IMPLEMENTATION(int NullModemClass::Init(int, int, char*, int, char, int, int), 0x5827D0);
-DEFINE_IMPLEMENTATION(int NullModemClass::Delete_Connection(), 0x582A50);
-DEFINE_IMPLEMENTATION(int NullModemClass::Num_Connections(), 0x582A40);
-DEFINE_IMPLEMENTATION(int NullModemClass::Init_Send_Queue(), 0x582AB0);
-DEFINE_IMPLEMENTATION(void NullModemClass::Shutdown(), 0x582C60);
-DEFINE_IMPLEMENTATION(void NullModemClass::Set_Timing(unsigned long, unsigned long, unsigned long, bool), 0x582CB0);
-DEFINE_IMPLEMENTATION(int NullModemClass::Send_Message(void*, int, int), 0x582CE0);
-DEFINE_IMPLEMENTATION(int NullModemClass::Get_Message(void*, int*), 0x582D20);
-DEFINE_IMPLEMENTATION(int NullModemClass::Service(), 0x582D50)
-DEFINE_IMPLEMENTATION(int NullModemClass::Num_Send(), 0x582F90);
-DEFINE_IMPLEMENTATION(int NullModemClass::Num_Receive(), 0x582FB0);
-DEFINE_IMPLEMENTATION(unsigned long NullModemClass::Response_Time(), 0x582FD0);
-DEFINE_IMPLEMENTATION(void NullModemClass::Reset_Response_Time(bool), 0x582FF0);
-DEFINE_IMPLEMENTATION(void* NullModemClass::Oldest_Send(), 0x583010);
-DEFINE_IMPLEMENTATION(void NullModemClass::Configure_Debug(int, int, int, char**, int, int), 0x583060);
-DEFINE_IMPLEMENTATION(DetectPortType NullModemClass::Detect_Port(SerialSettingsType*), 0x582AD0);
-DEFINE_IMPLEMENTATION(bool NullModemClass::Detect_Modem(SerialSettingsType*, bool), 0x583090);
-DEFINE_IMPLEMENTATION(DialStatusType NullModemClass::Dial_Modem(char*, DialMethodType, bool), 0x583880);
-DEFINE_IMPLEMENTATION(DialStatusType NullModemClass::Answer_Modem(bool), 0x583BF0);
-DEFINE_IMPLEMENTATION(bool NullModemClass::Hangup_Modem(), 0x584000);
-DEFINE_IMPLEMENTATION(void NullModemClass::Setup_Modem_Echo(void (*)(char)), 0x5841B0);
-DEFINE_IMPLEMENTATION(void NullModemClass::Remove_Modem_Echo(), 0x5841D0);
-DEFINE_IMPLEMENTATION(void NullModemClass::Print_EchoBuf(), 0x5841E0);
-DEFINE_IMPLEMENTATION(void NullModemClass::Reset_EchoBuf(), 0x584230);
-DEFINE_IMPLEMENTATION(int NullModemClass::Abort_Modem(void*), 0x584240);
-DEFINE_IMPLEMENTATION(void NullModemClass::Setup_Abort_Modem(), 0x584290);
-DEFINE_IMPLEMENTATION(void NullModemClass::Remove_Abort_Modem(), 0x5842B0);
-DEFINE_IMPLEMENTATION(int NullModemClass::Change_IRQ_Priority(int), 0x5842D0);
-DEFINE_IMPLEMENTATION(int NullModemClass::Get_Modem_Status(), 0x5842E0);
-DEFINE_IMPLEMENTATION(int NullModemClass::Send_Modem_Command(char*, char, char*, int, int, int), 0x584330);
-DEFINE_IMPLEMENTATION(int NullModemClass::Verify_And_Convert_To_Int(char*), 0x584360);
+//DEFINE_IMPLEMENTATION(NullModemClass::NullModemClass(int, int, int, unsigned short), 0x005826B0);
+//DEFINE_IMPLEMENTATION(NullModemClass::~NullModemClass(), 0x00582740);
+DEFINE_IMPLEMENTATION(int NullModemClass::Init(int, int, char*, int, char, int, int), 0x005827D0);
+DEFINE_IMPLEMENTATION(int NullModemClass::Delete_Connection(), 0x00582A50);
+DEFINE_IMPLEMENTATION(int NullModemClass::Num_Connections(), 0x00582A40);
+DEFINE_IMPLEMENTATION(int NullModemClass::Init_Send_Queue(), 0x00582AB0);
+DEFINE_IMPLEMENTATION(void NullModemClass::Shutdown(), 0x00582C60);
+DEFINE_IMPLEMENTATION(void NullModemClass::Set_Timing(unsigned long, unsigned long, unsigned long, bool), 0x00582CB0);
+DEFINE_IMPLEMENTATION(int NullModemClass::Send_Message(void*, int, int), 0x00582CE0);
+DEFINE_IMPLEMENTATION(int NullModemClass::Get_Message(void*, int*), 0x00582D20);
+DEFINE_IMPLEMENTATION(int NullModemClass::Service(), 0x00582D50)
+DEFINE_IMPLEMENTATION(int NullModemClass::Num_Send(), 0x00582F90);
+DEFINE_IMPLEMENTATION(int NullModemClass::Num_Receive(), 0x00582FB0);
+DEFINE_IMPLEMENTATION(unsigned long NullModemClass::Response_Time(), 0x00582FD0);
+DEFINE_IMPLEMENTATION(void NullModemClass::Reset_Response_Time(bool), 0x00582FF0);
+DEFINE_IMPLEMENTATION(void* NullModemClass::Oldest_Send(), 0x00583010);
+DEFINE_IMPLEMENTATION(void NullModemClass::Configure_Debug(int, int, int, char**, int, int), 0x00583060);
+DEFINE_IMPLEMENTATION(DetectPortType NullModemClass::Detect_Port(SerialSettingsType*), 0x00582AD0);
+DEFINE_IMPLEMENTATION(bool NullModemClass::Detect_Modem(SerialSettingsType*, bool), 0x00583090);
+DEFINE_IMPLEMENTATION(DialStatusType NullModemClass::Dial_Modem(char*, DialMethodType, bool), 0x00583880);
+DEFINE_IMPLEMENTATION(DialStatusType NullModemClass::Answer_Modem(bool), 0x00583BF0);
+DEFINE_IMPLEMENTATION(bool NullModemClass::Hangup_Modem(), 0x00584000);
+DEFINE_IMPLEMENTATION(void NullModemClass::Setup_Modem_Echo(void (*)(char)), 0x005841B0);
+DEFINE_IMPLEMENTATION(void NullModemClass::Remove_Modem_Echo(), 0x005841D0);
+DEFINE_IMPLEMENTATION(void NullModemClass::Print_EchoBuf(), 0x005841E0);
+DEFINE_IMPLEMENTATION(void NullModemClass::Reset_EchoBuf(), 0x00584230);
+DEFINE_IMPLEMENTATION(int NullModemClass::Abort_Modem(void*), 0x00584240);
+DEFINE_IMPLEMENTATION(void NullModemClass::Setup_Abort_Modem(), 0x00584290);
+DEFINE_IMPLEMENTATION(void NullModemClass::Remove_Abort_Modem(), 0x005842B0);
+DEFINE_IMPLEMENTATION(int NullModemClass::Change_IRQ_Priority(int), 0x005842D0);
+DEFINE_IMPLEMENTATION(int NullModemClass::Get_Modem_Status(), 0x005842E0);
+DEFINE_IMPLEMENTATION(int NullModemClass::Send_Modem_Command(char*, char, char*, int, int, int), 0x00584330);
+DEFINE_IMPLEMENTATION(int NullModemClass::Verify_And_Convert_To_Int(char*), 0x00584360);
 
-//DEFINE_IMPLEMENTATION(NullModemConnClass::NullModemConnClass(int, int, int, unsigned short), 0x580630);
-//DEFINE_IMPLEMENTATION(NullModemConnClass::~NullModemConnClass(), 0x580680);
-DEFINE_IMPLEMENTATION(void NullModemConnClass::Init(HANDLE), 0x5806A0);
-DEFINE_IMPLEMENTATION(int NullModemConnClass::Send(char*, int, void*, int), 0x5806C0);
-DEFINE_IMPLEMENTATION(int NullModemConnClass::Compute_CRC(char*, int), 0x580770);
-DEFINE_IMPLEMENTATION(int NullModemConnClass::Packet_Overhead_Size(), 0x5807A0);
-DEFINE_IMPLEMENTATION(void NullModemConnClass::Init(void), 0x5807B0);
+//DEFINE_IMPLEMENTATION(NullModemConnClass::NullModemConnClass(int, int, int, unsigned short), 0x00580630);
+//DEFINE_IMPLEMENTATION(NullModemConnClass::~NullModemConnClass(), 0x00580680);
+DEFINE_IMPLEMENTATION(void NullModemConnClass::Init(HANDLE), 0x005806A0);
+DEFINE_IMPLEMENTATION(int NullModemConnClass::Send(char*, int, void*, int), 0x005806C0);
+DEFINE_IMPLEMENTATION(int NullModemConnClass::Compute_CRC(char*, int), 0x00580770);
+DEFINE_IMPLEMENTATION(int NullModemConnClass::Packet_Overhead_Size(), 0x005807A0);
+DEFINE_IMPLEMENTATION(void NullModemConnClass::Init(void), 0x005807B0);
 
 // DEFINE_IMPLEMENTATION_CONSTRUCTOR(ConnectionClass::ConnectionClass(int, int, int, unsigned short, unsigned long, unsigned long, unsigned long, int), 0x00461D00);
 // DEFINE_IMPLEMENTATION_DESTRUCTOR(ConnectionClass::~ConnectionClass(), 0x00461D80);
@@ -3228,7 +3228,7 @@ DEFINE_IMPLEMENTATION(bool TechnoClass::Revealed(const HouseClass*), 0x0062AAD0)
 DEFINE_IMPLEMENTATION(void TechnoClass::Override_Mission(MissionType, AbstractClass*, AbstractClass*), 0x006323F0);
 DEFINE_IMPLEMENTATION(bool TechnoClass::Restore_Mission(), 0x00632430);
 DEFINE_IMPLEMENTATION(bool TechnoClass::entry_220() const, 0x0040F270);
-DEFINE_IMPLEMENTATION(bool TechnoClass::Is_Allowed_To_Recloak() const, 0x0000639120);
+DEFINE_IMPLEMENTATION(bool TechnoClass::Is_Allowed_To_Recloak() const, 0x00639120);
 DEFINE_IMPLEMENTATION(bool TechnoClass::entry_228() const, 0x0062A020);
 DEFINE_IMPLEMENTATION(bool TechnoClass::entry_22C() const, 0x0043B8D0);
 DEFINE_IMPLEMENTATION(bool TechnoClass::entry_230() const, 0x00638CA0);
@@ -3582,7 +3582,7 @@ DEFINE_IMPLEMENTATION(void BuildingClass::Draw_Overlays(Point2D&, Rect&), 0x0042
 DEFINE_IMPLEMENTATION(int BuildingClass::Shape_Number() const, 0x00429220);
 DEFINE_IMPLEMENTATION(void BuildingClass::Drop_Debris(AbstractClass*), 0x0042BC60);
 DEFINE_IMPLEMENTATION(void BuildingClass::Assign_Rally_Point(Cell&), 0x0042C340);
-DEFINE_IMPLEMENTATION(void BuildingClass::Begin_Mode(BStateType), 0x042F020);
+DEFINE_IMPLEMENTATION(void BuildingClass::Begin_Mode(BStateType), 0x0042F020);
 // 0042FF70
 // 004305C0
 // 00433A20
@@ -3700,7 +3700,7 @@ DEFINE_IMPLEMENTATION(void TeamClass::Calc_Center(AbstractClass*&, AbstractClass
 DEFINE_IMPLEMENTATION(void TeamClass::Took_Damage(FootClass*, ResultType, TechnoClass*), 0x00624440);
 DEFINE_IMPLEMENTATION(void TeamClass::Coordinate_Attack(), 0x006245B0);
 DEFINE_IMPLEMENTATION(bool TeamClass::Coordinate_Regroup(), 0x00624880);
-DEFINE_IMPLEMENTATION(void TeamClass::Coordinate_Move(), 0x0624A90);
+DEFINE_IMPLEMENTATION(void TeamClass::Coordinate_Move(), 0x00624A90);
 DEFINE_IMPLEMENTATION(bool TeamClass::Lagging_Units(), 0x00624E00);
 DEFINE_IMPLEMENTATION(bool TeamClass::Coordinate_Conscript(FootClass*), 0x00624FA0);
 DEFINE_IMPLEMENTATION(bool TeamClass::Is_A_Member(const FootClass*) const, 0x00625040);
@@ -4142,7 +4142,7 @@ BounceClass::BounceClass(const NoInitClass&) {}
 BounceClass::~BounceClass() {}
 // 004245B0
 // 00424700
-DEFINE_IMPLEMENTATION(Coord BounceClass::Get_Coord() const, 0x00004248C0);
+DEFINE_IMPLEMENTATION(Coord BounceClass::Get_Coord() const, 0x004248C0);
 // 00424900
 // 00424930
 // 00424A20
@@ -4202,7 +4202,7 @@ DEFINE_IMPLEMENTATION(bool AnimTypeClass::Create_And_Place(Cell&, HouseClass*) c
 DEFINE_IMPLEMENTATION(ObjectClass* const AnimTypeClass::Create_One_Of(HouseClass*) const, 0x00419BE0);
 DEFINE_IMPLEMENTATION(ShapeSet* const AnimTypeClass::Get_Image_Data() const, 0x00419A20);
 DEFINE_IMPLEMENTATION(void AnimTypeClass::Load_Image(const char*), 0x00418A70);
-DEFINE_IMPLEMENTATION(void AnimTypeClass::Free_Image(), 0x0419B40);
+DEFINE_IMPLEMENTATION(void AnimTypeClass::Free_Image(), 0x00419B40);
 DEFINE_IMPLEMENTATION(void AnimTypeClass::Init(TheaterType), 0x00418890);
 
 DEFINE_IMPLEMENTATION(LONG STDMETHODCALLTYPE TerrainTypeClass::GetClassID(CLSID*), 0x00641C60);
@@ -4842,7 +4842,7 @@ DEFINE_IMPLEMENTATION(void WaveClass::func_671C40(), 0x00671C40);
 DEFINE_IMPLEMENTATION(void WaveClass::func_672AA0(), 0x00672AA0);
 DEFINE_IMPLEMENTATION(void WaveClass::func_672160(Coord&, Coord&), 0x00672160);
 DEFINE_IMPLEMENTATION(void WaveClass::func_670580(), 0x00670580);
-DEFINE_IMPLEMENTATION(void WaveClass::func_6704B0(int, int), 0x6704B0);
+DEFINE_IMPLEMENTATION(void WaveClass::func_6704B0(int, int), 0x006704B0);
 
 DEFINE_IMPLEMENTATION(HRESULT CStreamClass::QueryInterface(REFIID, LPVOID*), 0x00471930);
 DEFINE_IMPLEMENTATION(ULONG CStreamClass::AddRef(), 0x004718D0);
@@ -5636,7 +5636,7 @@ DEFINE_IMPLEMENTATION(bool VeinholeMonsterClass::Save_All(IStream*), 0x00663210)
 DEFINE_IMPLEMENTATION(void VeinholeMonsterClass::Init_Clear(), 0x00661D00);
 DEFINE_IMPLEMENTATION(void VeinholeMonsterClass::Draw_All(), 0x006619D0);
 DEFINE_IMPLEMENTATION(void VeinholeMonsterClass::Update_All(), 0x006613C0);
-DEFINE_IMPLEMENTATION(VeinholeMonsterClass* VeinholeMonsterClass::Fetch_At(const Cell&), 0x0000661330);
+DEFINE_IMPLEMENTATION(VeinholeMonsterClass* VeinholeMonsterClass::Fetch_At(const Cell&), 0x00661330);
 DEFINE_IMPLEMENTATION(void VeinholeMonsterClass::Place_Monsters(bool), 0x006623F0);
 
 DEFINE_IMPLEMENTATION(LONG STDMETHODCALLTYPE FoggedObjectClass::GetClassID(CLSID*), 0x0049F6D0);
