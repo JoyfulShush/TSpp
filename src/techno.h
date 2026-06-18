@@ -296,7 +296,7 @@ public:
     bool IsALemon;
     unsigned char field_202;
     unsigned char field_203;
-    unsigned char field_204;
+    char SightIncrease; // sight range increase - for Look 
     bool field_205;    // recruitable?
     bool field_206;    // ai recruitable?
     bool field_207;    // is tracked in radar?
@@ -306,6 +306,6 @@ public:
     bool field_20B;
     AbstractClass* field_20C; // closet object to me?
     int EMPFramesRemaining;
-    unsigned field_214;
+    unsigned LimpetType;
     float LimpetSpeedFactor;
 };
