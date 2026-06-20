@@ -15,7 +15,7 @@ struct VQHandle;
 
 
 void Play_Movie(char const* name, ThemeType theme = THEME_NONE, bool clear_before = true, bool stretch_allowed = true, bool clear_after = true);
-void Play_Movie(VQType name, ThemeType theme = THEME_NONE, bool clear_screen = true, bool stretch_allowed = false);
+void Play_Movie(VQType name, ThemeType theme = THEME_NONE, bool clear_screen = true, bool stretch_allowed = true);
 void Play_Fullscreen_Movie(char const* name, ThemeType theme);
 void Play_Ingame_Movie(char const* name);
 void Play_Ingame_Movie(VQType name);
