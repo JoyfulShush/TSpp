@@ -1468,9 +1468,7 @@ DEFINE_IMPLEMENTATION(ULONG STDMETHODCALLTYPE LocomotionClass::Release(), 0x0050
 DEFINE_IMPLEMENTATION(LONG STDMETHODCALLTYPE LocomotionClass::IsDirty(), 0x00482280);
 DEFINE_IMPLEMENTATION(HRESULT STDMETHODCALLTYPE LocomotionClass::Save(IStream*, BOOL), 0x00506590);
 DEFINE_IMPLEMENTATION(LONG STDMETHODCALLTYPE LocomotionClass::GetSizeMax(ULARGE_INTEGER*), 0x00506660);
-LocomotionClass::LocomotionClass() {}
 LocomotionClass::LocomotionClass(const NoInitClass&) {}
-LocomotionClass::~LocomotionClass() {}
 DEFINE_IMPLEMENTATION(HRESULT LocomotionClass::Link_To_Object(void*), 0x00506250);
 DEFINE_IMPLEMENTATION(bool LocomotionClass::Is_Moving(), 0x00506800);
 DEFINE_IMPLEMENTATION(Coord LocomotionClass::Destination(), 0x00506790);
@@ -1516,7 +1514,6 @@ DEFINE_IMPLEMENTATION(void LocomotionClass::Unlock(), 0x00483CB0);
 DEFINE_IMPLEMENTATION(int LocomotionClass::Get_Track_Number(), 0x00483CC0);
 DEFINE_IMPLEMENTATION(int LocomotionClass::Get_Track_Index(), 0x00483CD0);
 DEFINE_IMPLEMENTATION(int LocomotionClass::Get_Speed_Accum(), 0x00483CE0);
-FootClass* LocomotionClass::Linked_To() const { return dynamic_cast<FootClass*>(LinkedTo); }
 DEFINE_IMPLEMENTATION(HRESULT STDMETHODCALLTYPE LocomotionClass::Locomotion_Load(IStream*), 0x005065F0);
 
 // DEFINE_IMPLEMENTATION_CONSTRUCTOR(WinsockInterfaceClass::WinsockInterfaceClass(), 0x006A0EB0);

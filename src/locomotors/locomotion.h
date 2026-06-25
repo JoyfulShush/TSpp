@@ -84,11 +84,6 @@ public:
     IFACEMETHOD_(int, Get_Track_Index)();
     IFACEMETHOD_(int, Get_Speed_Accum)();
 
-    /**
-     *  Fetch the raw pointer to the linked object, casted to FootClass.
-     */
-    FootClass* Linked_To() const;
-
 public:
     LocomotionClass();
     LocomotionClass(const NoInitClass& noinit);
